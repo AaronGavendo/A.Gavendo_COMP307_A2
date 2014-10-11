@@ -2,15 +2,14 @@
 Aaron Gavendo (300603352) 
 Last Modified By: Aaron Gavendo
 -------Additions-------------------------------------------
-Create main HTML File
-Create Javascipt File (slots.js)
-Add jQuery
-Link html with jQuery and slots.js
-Give Title
-Add H1 title
+Add Three Placeholder Images for the Wheel
+Add buttons to let users bet in 25, 50, 100
+Give the user starting chips and have bet buttons interact with it
+Prevent the user from betting more than they have
+Add a Button to be used for spinning at a later release
 -----------------------------------------------------------
-Modified on: 2014-10-08
-Version: 0.1 -->
+Modified on: 2014-10-11
+Version: 0.2 -->
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,6 +20,29 @@ Version: 0.1 -->
 </head>
 <body>
     <h1>Aaron's Slot Machine</h1>
+    <table border="1" style="width:100%">
+        <tr>
+            <td><img src="pics/spin.jpg" /></td>
+            <td><img src="pics/spin.jpg" /></td>
+            <td><img src="pics/spin.jpg" /></td>
+        </tr>
+        <tr>
+            <td>
+                <p>Bet Amount:</p>
+                <p id="betAmount">0</p>
+                <button id="bet25">Bet 25</button>
+                <button id="bet50">Bet 50</button>
+                <button id="bet100">Bet 100</button>
+            </td>
+            <td>
+                <p>Stock Pile:</p>
+                <h3 id="totalCash">200</h3>
+            </td>
+            <td>
+                <button id="spin">SPIN!!!</button>
+            </td>
+        </tr>
 
+    </table>
 </body>
 </html>

@@ -67,6 +67,11 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="jquery-2.1.1.min.js" />
+    <Content Include="pics\bar.jpg" />
+    <Content Include="pics\bell.jpg" />
+    <Content Include="pics\cherry.jpg" />
+    <Content Include="pics\seven.jpg" />
+    <Content Include="pics\spin.jpg" />
     <Content Include="slots.js" />
     <Content Include="Web.config" />
   </ItemGroup>
