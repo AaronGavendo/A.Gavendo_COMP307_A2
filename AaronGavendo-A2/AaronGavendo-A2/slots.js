@@ -65,6 +65,12 @@
         pick2pic = getFruit(pick2);
         pick3pic = getFruit(pick3);
 
+        $("#slot1").attr("src", pick1pic + ".jpg");
+        $("#slot2").attr("src", pick2pic + ".jpg");
+        $("#slot3").attr("src", pick3pic + ".jpg");
+
+        document.getElementById("messages").innerHTML = "test";
+
         console.log(pick1pic);
         console.log(pick2pic);
         console.log(pick3pic);
@@ -75,26 +81,26 @@
 
     function getFruit(theRandomValue)
     {
-        var theValue = 'spin';
+        var theValue = "spin";
         if (theRandomValue > 0 && theRandomValue <= 10)
         {
-            theValue = 'seven';
+            theValue = "seven";
         }
         else if (theRandomValue >= 11 && theRandomValue <= 25)
         {
-            theValue = 'bar';
+            theValue = "bar";
         }
         else if (theRandomValue >= 26 && theRandomValue <= 60)
         {
-            theValue = 'bell';
+            theValue = "bell";
         }
         else if (theRandomValue >= 61 && theRandomValue <= 100)
         {
-            theValue = 'cherry';
+            theValue = "cherry";
         }
         else
         {
-            theValue = 'spin';
+            theValue = "spin";
         }
         return theValue;
     }

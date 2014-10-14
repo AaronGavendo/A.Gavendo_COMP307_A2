@@ -2,12 +2,11 @@
 Aaron Gavendo (300603352) 
 Last Modified By: Aaron Gavendo
 -------Additions-------------------------------------------
-Add the getFruit function
-Add probablilty to get picks
-Send three picks to the console.log
+Get Appropriate pictures to appear in the slot machine
+Add a message box for the user to get info from the game
 -----------------------------------------------------------
 Modified on: 2014-10-13
-Version: 0.4 -->
+Version: 0.5 -->
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -20,9 +19,9 @@ Version: 0.4 -->
     <h1>Aaron's Slot Machine</h1>
     <table border="1" style="width:100%">
         <tr>
-            <td><img src="pics/spin.jpg" /></td>
-            <td><img src="pics/spin.jpg" /></td>
-            <td><img src="pics/spin.jpg" /></td>
+            <td><img id="slot1" src="pics/spin.jpg" /></td>
+            <td><img id="slot2" src="pics/spin.jpg" /></td>
+            <td><img id="slot3" src="pics/spin.jpg" /></td>
         </tr>
         <tr>
             <td>
@@ -38,6 +37,15 @@ Version: 0.4 -->
             </td>
             <td>
                 <button id="spin">SPIN!!!</button>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="3">
+                <h3>Messages: </h3>
+                <h1 id="messages"></h1>
+            </th>
+            <td>
+
             </td>
         </tr>
 
