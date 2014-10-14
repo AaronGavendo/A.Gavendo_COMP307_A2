@@ -3,6 +3,9 @@
     var totalAmount = 200;
     var betAmount;
     var poorMessage = "You Can't afford this bet!";
+    var pick1 = 0;
+    var pick2 = 0;
+    var pick2 = 0;
 
     $("#bet25").click(function () //When 25 Bet button is pressed
     {
@@ -49,5 +52,15 @@
         }
     });
 
+    $("#spin").click(function () //This method spins the wheel. It will determin a win and prize. 
+    {
+        pick1 = Math.floor((Math.random() * 100) + 1);
+        pick2 = Math.floor((Math.random() * 100) + 1);
+        pick3 = Math.floor((Math.random() * 100) + 1);
+
+        console.log(pick1 + '-' + pick2 + '-' + pick3);
+
+
+    });
 
 });
