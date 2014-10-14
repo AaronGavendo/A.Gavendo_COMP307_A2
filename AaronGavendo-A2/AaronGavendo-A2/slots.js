@@ -6,6 +6,9 @@
     var pick1 = 0;
     var pick2 = 0;
     var pick2 = 0;
+    var pick1pic = 'spin';
+    var pick2pic = 'spin';
+    var pick3pic = 'spin';
 
     $("#bet25").click(function () //When 25 Bet button is pressed
     {
@@ -58,9 +61,42 @@
         pick2 = Math.floor((Math.random() * 100) + 1);
         pick3 = Math.floor((Math.random() * 100) + 1);
 
+        pick1pic = getFruit(pick1);
+        pick2pic = getFruit(pick2);
+        pick3pic = getFruit(pick3);
+
+        console.log(pick1pic);
+        console.log(pick2pic);
+        console.log(pick3pic);
+
         console.log(pick1 + '-' + pick2 + '-' + pick3);
 
-
     });
+
+    function getFruit(theRandomValue)
+    {
+        var theValue = 'spin';
+        if (theRandomValue > 0 && theRandomValue <= 10)
+        {
+            theValue = 'seven';
+        }
+        else if (theRandomValue >= 11 && theRandomValue <= 25)
+        {
+            theValue = 'bar';
+        }
+        else if (theRandomValue >= 26 && theRandomValue <= 60)
+        {
+            theValue = 'bell';
+        }
+        else if (theRandomValue >= 61 && theRandomValue <= 100)
+        {
+            theValue = 'cherry';
+        }
+        else
+        {
+            theValue = 'spin';
+        }
+        return theValue;
+    }
 
 });
