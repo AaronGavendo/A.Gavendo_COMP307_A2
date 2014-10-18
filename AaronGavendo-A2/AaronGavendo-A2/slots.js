@@ -9,6 +9,7 @@
     var pick1pic = 'spin';
     var pick2pic = 'spin';
     var pick3pic = 'spin';
+    var betPlaced = 0;          
 
     $("#bet25").click(function () //When 25 Bet button is pressed
     {
@@ -18,6 +19,8 @@
             totalAmount = totalAmount - 25;
             document.getElementById("betAmount").innerHTML = betAmount; //Pass into html (text value)
             document.getElementById("totalCash").innerHTML = totalAmount; //Pass into html (text value)
+            betPlaced = 1;
+            console.log(betPlaced);
         }
         else
         {
@@ -33,6 +36,8 @@
             totalAmount = totalAmount - 50;
             document.getElementById("betAmount").innerHTML = betAmount;
             document.getElementById("totalCash").innerHTML = totalAmount;
+            betPlaced = 1;
+            console.log(betPlaced);
         }
         else
         {
@@ -48,6 +53,8 @@
             totalAmount = totalAmount - 100;
             document.getElementById("betAmount").innerHTML = betAmount;
             document.getElementById("totalCash").innerHTML = totalAmount;
+            betPlaced = 1;
+            console.log(betPlaced);
         }
         else
         {
@@ -71,6 +78,9 @@
 
         document.getElementById("messages").innerHTML = "test";
 
+        betPlaced = 0;
+        
+        console.log(betPlaced);
         console.log(pick1pic);
         console.log(pick2pic);
         console.log(pick3pic);
