@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () //Function to run when website is loaded
 {
-    var totalAmount = 200;
-    var betAmount;
+    var totalAmount = 2000;
+    var betAmount = 0;
     var poorMessage = "You Can't afford this bet!";
     var pick1 = 0;
     var pick2 = 0;
@@ -20,7 +20,6 @@
             document.getElementById("betAmount").innerHTML = betAmount; //Pass into html (text value)
             document.getElementById("totalCash").innerHTML = totalAmount; //Pass into html (text value)
             betPlaced = 1;
-            console.log(betPlaced);
         }
         else
         {
@@ -64,6 +63,8 @@
 
     $("#spin").click(function () //This method spins the wheel. It will determin a win and prize. 
     {
+        totalAmount = totalAmount - betAmount;
+
         pick1 = Math.floor((Math.random() * 100) + 1);
         pick2 = Math.floor((Math.random() * 100) + 1);
         pick3 = Math.floor((Math.random() * 100) + 1);
@@ -76,35 +77,57 @@
         $("#slot2").attr("src", pick2pic + ".jpg");
         $("#slot3").attr("src", pick3pic + ".jpg");
 
-        document.getElementById("messages").innerHTML = "test";
+        if (pick1pic === pick2pic){
+            if(pick1pic === pick3pic){
+                if(pick1pic === 'cherry'){
+                    totalAmount = totalAmount + (betAmount * 4);
+                    document.getElementById("messages").innerHTML = "WIN: $" + (betAmount * 4);
+                }
+                if (pick1pic === 'bar') {
+                    totalAmount = totalAmount + (betAmount * 8);
+                    document.getElementById("messages").innerHTML = "WIN: $" + (betAmount * 8);
+                }
+                if (pick1pic === 'seven') {
+                    totalAmount = totalAmount + (betAmount * 14);
+                    document.getElementById("messages").innerHTML = "WIN: $" + (betAmount * 14);
+                }
+                if (pick1pic === 'bell') {
+                    totalAmount = totalAmount + (betAmount * 20);
+                    document.getElementById("messages").innerHTML = "WIN: $" + (betAmount * 20);
+                }
+            }
+            else{
+                document.getElementById("messages").innerHTML = "LOSE";
+            }
+        }
+        else{
+            document.getElementById("messages").innerHTML = "LOSE";
+        }
 
-        betPlaced = 0;
+        //betAmount = 0;
+        //betPlaced = 0;
+        document.getElementById("totalCash").innerHTML = totalAmount;
+
+        document.getElementById("betAmount").innerHTML = betAmount; //Pass into html (text value)
         
-        console.log(betPlaced);
-        console.log(pick1pic);
-        console.log(pick2pic);
-        console.log(pick3pic);
-
-        console.log(pick1 + '-' + pick2 + '-' + pick3);
-
     });
 
-    function getFruit(theRandomValue)
+    function getFruit(theRandomValue)   //Pick a value (Not Random, Random with probability)
     {
         var theValue = "spin";
-        if (theRandomValue > 0 && theRandomValue <= 10)
-        {
-            theValue = "seven";
-        }
-        else if (theRandomValue >= 11 && theRandomValue <= 25)
-        {
-            theValue = "bar";
-        }
-        else if (theRandomValue >= 26 && theRandomValue <= 60)
+        if (theRandomValue > 0 && theRandomValue <= 10) //Hardest to Get
         {
             theValue = "bell";
         }
-        else if (theRandomValue >= 61 && theRandomValue <= 100)
+        else if (theRandomValue >= 11 && theRandomValue <= 25) //2nd
+        {
+            theValue = "seven";
+        }
+        else if (theRandomValue >= 26 && theRandomValue <= 60) //3rd
+        {
+            theValue = "bar";
+        }
+        else if (theRandomValue >= 61 && theRandomValue <= 100) //4th Easy
         {
             theValue = "cherry";
         }
