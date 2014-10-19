@@ -70,6 +70,7 @@
     <Content Include="bar.jpg" />
     <Content Include="bell.jpg" />
     <Content Include="cherry.jpg" />
+    <Content Include="pics\Deco1.jpg" />
     <Content Include="seven.jpg" />
     <Content Include="pics\spin.jpg" />
     <Content Include="slots.js" />

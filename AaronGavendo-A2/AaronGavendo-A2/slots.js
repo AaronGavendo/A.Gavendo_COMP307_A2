@@ -16,9 +16,7 @@
         betAmount = 25;
         if (totalAmount > 24)
         {
-            totalAmount = totalAmount - 25;
             document.getElementById("betAmount").innerHTML = betAmount; //Pass into html (text value)
-            document.getElementById("totalCash").innerHTML = totalAmount; //Pass into html (text value)
             betPlaced = 1;
         }
         else
@@ -32,11 +30,8 @@
         betAmount = 50;
         if(totalAmount > 49)
         {
-            totalAmount = totalAmount - 50;
             document.getElementById("betAmount").innerHTML = betAmount;
-            document.getElementById("totalCash").innerHTML = totalAmount;
             betPlaced = 1;
-            console.log(betPlaced);
         }
         else
         {
@@ -49,11 +44,8 @@
         betAmount = 100;
         if (totalAmount > 99)
         {
-            totalAmount = totalAmount - 100;
             document.getElementById("betAmount").innerHTML = betAmount;
-            document.getElementById("totalCash").innerHTML = totalAmount;
             betPlaced = 1;
-            console.log(betPlaced);
         }
         else
         {
@@ -63,25 +55,29 @@
 
     $("#spin").click(function () //This method spins the wheel. It will determin a win and prize. 
     {
-        totalAmount = totalAmount - betAmount;
+        if(betAmount <= totalAmount)
+        {
 
-        pick1 = Math.floor((Math.random() * 100) + 1);
+       
+        totalAmount = totalAmount - betAmount;                  //Take the user money
+
+        pick1 = Math.floor((Math.random() * 100) + 1);          //Pick a random number (1 - 100)
         pick2 = Math.floor((Math.random() * 100) + 1);
         pick3 = Math.floor((Math.random() * 100) + 1);
 
-        pick1pic = getFruit(pick1);
+        pick1pic = getFruit(pick1);                             //Send the number to get fruit, return a item
         pick2pic = getFruit(pick2);
         pick3pic = getFruit(pick3);
 
-        $("#slot1").attr("src", pick1pic + ".jpg");
+        $("#slot1").attr("src", pick1pic + ".jpg");             //Send the picked image to the HTML
         $("#slot2").attr("src", pick2pic + ".jpg");
         $("#slot3").attr("src", pick3pic + ".jpg");
 
         if (pick1pic === pick2pic){
             if(pick1pic === pick3pic){
-                if(pick1pic === 'cherry'){
-                    totalAmount = totalAmount + (betAmount * 4);
-                    document.getElementById("messages").innerHTML = "WIN: $" + (betAmount * 4);
+                if(pick1pic === 'cherry'){ //Check if all three picks are the same
+                    totalAmount = totalAmount + (betAmount * 4);    //Give the prize base on bet
+                    document.getElementById("messages").innerHTML = "WIN: $" + (betAmount * 4); //Send the win message
                 }
                 if (pick1pic === 'bar') {
                     totalAmount = totalAmount + (betAmount * 8);
@@ -97,18 +93,20 @@
                 }
             }
             else{
-                document.getElementById("messages").innerHTML = "LOSE";
+                document.getElementById("messages").innerHTML = "LOSE";  //Send lose message for 2/3
             }
         }
         else{
-            document.getElementById("messages").innerHTML = "LOSE";
+            document.getElementById("messages").innerHTML = "LOSE";      //Send lose message for 1/3 or 0/3
         }
 
-        //betAmount = 0;
-        //betPlaced = 0;
-        document.getElementById("totalCash").innerHTML = totalAmount;
-
-        document.getElementById("betAmount").innerHTML = betAmount; //Pass into html (text value)
+        document.getElementById("totalCash").innerHTML = totalAmount;    //Pass Total Cash
+        document.getElementById("betAmount").innerHTML = betAmount;      //Pass into html (text value)
+        }
+        else
+        {
+            document.getElementById("messages").innerHTML = poorMessage; //Send a message if use has insufficient funds
+        }
         
     });
 
