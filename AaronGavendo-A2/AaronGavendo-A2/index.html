@@ -2,12 +2,14 @@
 Aaron Gavendo (300603352) 
 Last Modified By: Aaron Gavendo
 -------Additions-------------------------------------------
-Improve the betting system to prevent errors
-Add a side bar to show how much the user could win
-Add some comments
+Add Jackpot
+    - New Slot Value
+    - New Text displaying Jackpot
+    - New Jackpot value
+    - Append to the jp value when spinning and not winning
 -----------------------------------------------------------
 Modified on: 2014-10-18
-Version: 0.8 -->
+Version: 0.9 -->
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,9 +18,17 @@ Version: 0.8 -->
     <script src="jquery-2.1.1.min.js"></script>
     <script src="slots.js"></script>
 </head>
-<body>
-    <h1>Aaron's Slot Machine</h1>
+<body>  
     <table border="1" style="width:100%">
+        <tr></tr>
+        <tr>
+            <td>
+                <h1>Aaron's Slot Machine</h1>
+            </td>
+            <td>
+                <h3 id="jackpotValue">JACKPOT: 3000</h3>
+            </td>
+        </tr>
         <tr>
             <td><img id="slot1" src="pics/spin.jpg" /></td>
             <td><img id="slot2" src="pics/spin.jpg" /></td>
@@ -29,6 +39,7 @@ Version: 0.8 -->
                 <p>Bar = $X8</p>
                 <p>Seven = $X14</p>
                 <p>Bell = $X20</p>
+                <p>Jackpot = Jackpot (odds 1/300)</p>
             </td>
         </tr>
         <tr>

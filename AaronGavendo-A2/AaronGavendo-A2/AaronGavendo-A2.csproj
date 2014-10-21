@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="jackpot.jpg" />
     <Content Include="jquery-2.1.1.min.js" />
     <Content Include="bar.jpg" />
     <Content Include="bell.jpg" />

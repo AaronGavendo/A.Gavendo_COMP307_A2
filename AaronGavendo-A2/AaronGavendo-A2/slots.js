@@ -9,7 +9,7 @@
     var pick1pic = 'spin';
     var pick2pic = 'spin';
     var pick3pic = 'spin';
-    var betPlaced = 0;          
+    var theJackpot = 3000; //Start Jackpot value
 
     $("#bet25").click(function () //When 25 Bet button is pressed
     {
@@ -17,7 +17,6 @@
         if (totalAmount > 24)
         {
             document.getElementById("betAmount").innerHTML = betAmount; //Pass into html (text value)
-            betPlaced = 1;
         }
         else
         {
@@ -31,7 +30,6 @@
         if(totalAmount > 49)
         {
             document.getElementById("betAmount").innerHTML = betAmount;
-            betPlaced = 1;
         }
         else
         {
@@ -45,7 +43,6 @@
         if (totalAmount > 99)
         {
             document.getElementById("betAmount").innerHTML = betAmount;
-            betPlaced = 1;
         }
         else
         {
@@ -57,11 +54,9 @@
     {
         if(betAmount <= totalAmount)
         {
-
-       
         totalAmount = totalAmount - betAmount;                  //Take the user money
 
-        pick1 = Math.floor((Math.random() * 100) + 1);          //Pick a random number (1 - 100)
+        pick1 = Math.floor((Math.random() * 100) + 1);          //Pick a random number (1 - 102)
         pick2 = Math.floor((Math.random() * 100) + 1);
         pick3 = Math.floor((Math.random() * 100) + 1);
 
@@ -91,13 +86,25 @@
                     totalAmount = totalAmount + (betAmount * 20);
                     document.getElementById("messages").innerHTML = "WIN: $" + (betAmount * 20);
                 }
+                if (pick1pic === 'jackpot') {
+                    totalAmount = totalAmount + (theJackpot);
+                    document.getElementById("messages").innerHTML = "JACKPOT!!!: $" + (theJackpot);
+                }
             }
-            else{
+            else
+            {
+                theJackpot = theJackpot + betAmount;                           //increase the Jackpot
                 document.getElementById("messages").innerHTML = "LOSE";  //Send lose message for 2/3
+                document.getElementById("jackpotValue").innerHTML = "JACKPOT: " + theJackpot;
+                console.log(theJackpot);
             }
         }
-        else{
+        else
+        {
+            theJackpot = theJackpot + betAmount;                               //increase the Jackpot
             document.getElementById("messages").innerHTML = "LOSE";      //Send lose message for 1/3 or 0/3
+            document.getElementById("jackpotValue").innerHTML = "JACKPOT: " + theJackpot;
+            console.log(theJackpot);
         }
 
         document.getElementById("totalCash").innerHTML = totalAmount;    //Pass Total Cash
@@ -125,9 +132,13 @@
         {
             theValue = "bar";
         }
-        else if (theRandomValue >= 61 && theRandomValue <= 100) //4th Easy
+        else if (theRandomValue >= 61 && theRandomValue <= 99) //4th Easy
         {
             theValue = "cherry";
+        }
+        else if (theRandomValue === 100) //Jackpot
+        {
+            theValue = "jackpot";
         }
         else
         {
