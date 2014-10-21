@@ -75,6 +75,7 @@
     <Content Include="seven.jpg" />
     <Content Include="pics\spin.jpg" />
     <Content Include="slots.js" />
+    <Content Include="Vegas.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
