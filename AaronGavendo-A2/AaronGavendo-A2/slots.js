@@ -147,4 +147,9 @@
         return theValue;
     }
 
+    $("#reset").click(function () //Reset Button
+    {
+        location.reload();
+    });
+
 });
