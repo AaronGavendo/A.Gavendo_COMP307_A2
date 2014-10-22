@@ -2,9 +2,9 @@
 Aaron Gavendo (300603352) 
 Last Modified By: Aaron Gavendo
 -------Additions-------------------------------------------
-Add Submit Button
-Add Reset Button
-Let Reset Button releod the page
+Give functionality to the Quit button
+Create HTML Page for the Quit Screen 
+Improve Jackpot photo
 -----------------------------------------------------------
 Modified on: 2014-10-21
 Version: 0.11 -->
@@ -24,7 +24,9 @@ Version: 0.11 -->
             <td>
                 <h1>Aaron's Slot Machine</h1>
                 <button id="reset">Reset</button>
-                <button id="quit">Quit</button>
+                <form action="/EndPage.html">
+                    <input type="submit" value="Quit">
+                </form>
             </td>
             <td>
                 <h3 id="jackpotValue">JACKPOT: 3000</h3>
@@ -43,7 +45,7 @@ Version: 0.11 -->
                 <p>Bar = $X8</p>
                 <p>Seven = $X14</p>
                 <p>Bell = $X20</p>
-                <p>Jackpot = Jackpot (odds 1/300)</p>
+                <p>Jackpot = Jackpot (odds 1/1,000,000)</p>
             </td>
         </tr>
         <tr>
