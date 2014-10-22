@@ -10,6 +10,9 @@
     var pick2pic = 'spin';
     var pick3pic = 'spin';
     var theJackpot = 3000; //Start Jackpot value
+    var turnCount = 0;
+    var winCount = 0;
+    var LosesCount = 0;
 
     $("#bet25").click(function () //When 25 Bet button is pressed
     {
@@ -69,7 +72,8 @@
         $("#slot3").attr("src", pick3pic + ".jpg");
 
         if (pick1pic === pick2pic){
-            if(pick1pic === pick3pic){
+            if (pick1pic === pick3pic)
+            {
                 if(pick1pic === 'cherry'){ //Check if all three picks are the same
                     totalAmount = totalAmount + (betAmount * 4);    //Give the prize base on bet
                     document.getElementById("messages").innerHTML = "WIN: $" + (betAmount * 4); //Send the win message
@@ -89,24 +93,32 @@
                 if (pick1pic === 'jackpot') {
                     totalAmount = totalAmount + (theJackpot);
                     document.getElementById("messages").innerHTML = "JACKPOT!!!: $" + (theJackpot);
+                    theJackpot = 0; //Reset the Jackpot
                 }
+                winCount = winCount + 1;
+                document.getElementById("wins").innerHTML = "Wins: " + winCount;
+                console.log(LosesCount);
             }
             else
             {
-                theJackpot = theJackpot + betAmount;                           //increase the Jackpot
+                theJackpot = theJackpot + betAmount;                     //increase the Jackpot
+                LosesCount = LosesCount + 1;                             //increase lose count
                 document.getElementById("messages").innerHTML = "LOSE";  //Send lose message for 2/3
                 document.getElementById("jackpotValue").innerHTML = "JACKPOT: " + theJackpot;
-                console.log(theJackpot);
+                document.getElementById("lose").innerHTML = "Loses: " + LosesCount;
             }
         }
         else
         {
-            theJackpot = theJackpot + betAmount;                               //increase the Jackpot
+            theJackpot = theJackpot + betAmount;                         //increase the Jackpot
+            LosesCount = LosesCount + 1;                                 //increase lose count
             document.getElementById("messages").innerHTML = "LOSE";      //Send lose message for 1/3 or 0/3
             document.getElementById("jackpotValue").innerHTML = "JACKPOT: " + theJackpot;
-            console.log(theJackpot);
-        }
+            document.getElementById("lose").innerHTML = "Loses: " + LosesCount;
 
+        }
+        turnCount = turnCount + 1;                                       //increase turn count
+        document.getElementById("turns").innerHTML = "Turns: " + turnCount;
         document.getElementById("totalCash").innerHTML = totalAmount;    //Pass Total Cash
         document.getElementById("betAmount").innerHTML = betAmount;      //Pass into html (text value)
         }

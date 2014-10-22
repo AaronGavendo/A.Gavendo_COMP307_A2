@@ -2,17 +2,18 @@
 Aaron Gavendo (300603352) 
 Last Modified By: Aaron Gavendo
 -------Additions-------------------------------------------
-Give functionality to the Quit button
-Create HTML Page for the Quit Screen 
-Improve Jackpot photo
+Add Turns Counter
+Add Win Counter
+Add Lose Counter
+Change css and html to have green prize labels
 -----------------------------------------------------------
 Modified on: 2014-10-22
-Version: 0.12 -->
+Version: 0.13 -->
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Aaron's Slot Machine</title>
+    <title>Aaron's Slots</title>
     <link href="Vegas.css" rel="stylesheet" />
     <script src="jquery-2.1.1.min.js"></script>
     <script src="slots.js"></script>
@@ -40,12 +41,16 @@ Version: 0.12 -->
             <td><img id="slot2" src="pics/spin.jpg" /></td>
             <td><img id="slot3" src="pics/spin.jpg" /></td>
             <td rowspan="3">
+                <p>Bet, Spin, Win - Three of a kind gets you a prize</p>
                 <p>The more you bet, the more you can win!</p>
-                <p>Cherry = $X4</p>
-                <p>Bar = $X8</p>
-                <p>Seven = $X14</p>
-                <p>Bell = $X20</p>
-                <p>Jackpot = Jackpot (odds 1/1,000,000)</p>
+                <h5>Cherry = $X4</h5>
+                <h5>Bar = $X8</h5>
+                <h5>Seven = $X14</h5>
+                <h5>Bell = $X20</h5>
+                <h5>Jackpot = Jackpot (odds 1/1,000,000)</h5>
+                <p id="turns">Turns: 0</p>
+                <p id="wins">Wins: 0</p>
+                <p id="lose">Loses: 0</p>
             </td>
         </tr>
         <tr>
