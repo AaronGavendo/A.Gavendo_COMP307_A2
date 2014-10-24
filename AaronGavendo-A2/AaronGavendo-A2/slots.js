@@ -3,10 +3,10 @@
     var totalAmount = 2000;
     var betAmount = 0;
     var poorMessage = "You Can't afford this bet!";
-    var pick1 = 0;
+    var pick1 = 0;          //Random pick (#)
     var pick2 = 0;
     var pick2 = 0;
-    var pick1pic = 'spin';
+    var pick1pic = 'spin';  //Random pick (item)
     var pick2pic = 'spin';
     var pick3pic = 'spin';
     var theJackpot = 3000; //Start Jackpot value
@@ -71,7 +71,8 @@
         $("#slot2").attr("src", pick2pic + ".jpg");
         $("#slot3").attr("src", pick3pic + ".jpg");
 
-        if (pick1pic === pick2pic){
+        if (pick1pic === pick2pic)
+        {                               //Check to see if three in a row
             if (pick1pic === pick3pic)
             {
                 if(pick1pic === 'cherry'){ //Check if all three picks are the same
@@ -95,9 +96,8 @@
                     document.getElementById("messages").innerHTML = "JACKPOT!!!: $" + (theJackpot);
                     theJackpot = 0; //Reset the Jackpot
                 }
-                winCount = winCount + 1;
-                document.getElementById("wins").innerHTML = "Wins: " + winCount;
-                console.log(LosesCount);
+                winCount = winCount + 1;                                            
+                document.getElementById("wins").innerHTML = "Wins: " + winCount;    //Increase Win Count
             }
             else
             {
